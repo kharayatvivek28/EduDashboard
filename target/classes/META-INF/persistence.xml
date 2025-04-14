@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+    <!-- Define Persistence Unit -->
+    <persistence-unit name="my_persistence_unit">
+
+        <!-- Hibernate Provider -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Hibernate Entity Classes -->
+        <class>com.mycompany.managementdashboard.model.Admin</class>
+        <class>com.mycompany.managementdashboard.model.Teacher</class>
+        <class>com.mycompany.managementdashboard.model.Student</class>
+        <class>com.mycompany.managementdashboard.model.TeacherDetails</class>
+
+        <!-- Hibernate Properties -->
+        <properties>
+            <!-- Specify Hibernate dialect -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB103Dialect"/>-->
+
+
+            <!-- Enable Hibernate's automatic session context management -->
+            <property name="hibernate.current_session_context_class" value="thread"/>
+
+            <!-- Show SQL queries in console -->
+            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Enable auto table creation and updating -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Use the existing session context class -->
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+
+            <!-- Disable second-level cache (you can enable later if needed) -->
+<!--            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>-->
+
+        </properties>
+    </persistence-unit>
+</persistence>
