@@ -1,0 +1,57 @@
+1. Admin Entity - admintable
+CREATE TABLE admintable (
+    adminId INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(25) NOT NULL UNIQUE,
+    fname VARCHAR(25) NOT NULL,
+    lname VARCHAR(25) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(25) NOT NULL
+);
+
+2. Student Entity - studenttable
+CREATE TABLE studenttable (
+    studentId INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(25) NOT NULL UNIQUE,
+    fname VARCHAR(25) NOT NULL,
+    lname VARCHAR(25) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(25) NOT NULL
+);
+
+3. Teacher Entity - teachertable
+
+CREATE TABLE teachertable (
+    teacherId INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(25) NOT NULL UNIQUE,
+    fname VARCHAR(25) NOT NULL,
+    lname VARCHAR(25) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(25) NOT NULL
+);
+
+4. TeacherDetails Entity - teacher_details
+
+CREATE TABLE teacher_details (
+    teacherDetailsId INT AUTO_INCREMENT PRIMARY KEY,
+    address VARCHAR(255) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    age INT NOT NULL CHECK (age >= 18 AND age <= 100),
+    salary DECIMAL(15,2) NOT NULL CHECK (salary > 0),
+    role VARCHAR(50) NOT NULL,
+    expertized_subjects VARCHAR(255) NOT NULL,
+    teacher_id INT NOT NULL,
+    FOREIGN KEY (teacher_id) REFERENCES teachertable(teacherId)
+);
+
+5. StudentDetails Entity - student_details
+
+CREATE TABLE student_details (
+    studentDetailsId INT AUTO_INCREMENT PRIMARY KEY,
+    address VARCHAR(255) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    age INT NOT NULL CHECK (age >= 5 AND age <= 100),
+    class_name VARCHAR(50) NOT NULL,
+    course VARCHAR(100) NOT NULL,
+    student_id INT NOT NULL UNIQUE,
+    FOREIGN KEY (student_id) REFERENCES studenttable(studentId)
+);
