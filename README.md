@@ -9,7 +9,7 @@ Follow these steps to set up and run **EduDashboard** on your local machine:
 
 ### 1. Clone the repository:
 ```bash
-git clone
+git clone https://github.com/kharayatvivek28/EduDashboard
 ```
 
 ### 2. Import the project into your IDE
