@@ -126,7 +126,7 @@
     <h2>Welcome to EduDashboard</h2>
 
     <p class="subtitle">Please choose your role to access your personalized dashboard</p>
-    
+
     <div class="role-grid">
         <!-- Admin Card -->
         <section class="role-card">
